@@ -58,10 +58,10 @@ This class represents the rental store in the system. It contains a list of movi
 
 
 # What should you do?
--Initial implementation of the film rental project is located in a specific folder.
--Update the film rental system to a film, book, and game rental system while considering inheritance concepts.
--Proper use of Git and project commenting.
--Fork the project and place it on GitHub.
+- Initial implementation of the film rental project is located in a specific folder.
+- Update the film rental system to a film, book, and game rental system while considering inheritance concepts.
+- Proper use of Git and project commenting.
+- Fork the project and place it on GitHub.
 
 ## Class Hierarchy
 The system includes the following class hierarchy:
