@@ -51,3 +51,7 @@ This class represents the rental store in the system. It contains a list of movi
 - returnMovie(rental: Rental): void: allows a customer to return a rented movie
 - getCustomerById(id: int): Customer: returns the customer with the provided ID
 - getMovieById(id: int): Movie: returns the movie with the provided ID
+
+#UML Dialgram
+![UML Diagram](/Blank diagram.png)
+
