@@ -54,5 +54,5 @@ This class represents the rental store in the system. It contains a list of movi
 
 # UML Dialgram
   
-![UML Diagram](/Blank diagram.png)
+![UML Diagram](https://github.com/AP4012/MovieRental/blob/main/Blank%20diagram.png?raw=true)
 
