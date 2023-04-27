@@ -68,12 +68,12 @@ The system includes the following class hierarchy:
 
 - Item: Represents an item in the rental store, which can be either a movie or a game. Contains attributes such as title, genre, and release date. It also includes a unique ID and a rental fee attribute, which can be overridden by the subclasses.
 - Movie: Represents a movie in the rental store. Inherits from the Item class and adds attributes such as director and cast. Contains methods such as rentMovie and returnMovie.
-- Game: Represents a game in the rental store. Inherits from the Item class and adds attributes such as platform and publisher. Contains methods such as rentGame and returnGame.
+- Book: Represents a game in the rental store. Inherits from the Item class and adds attributes such as platform and publisher. Contains methods such as rentGame and returnGame.
 - Book : Represents a book in the rental store. Inherits from the Item class and adds attributes such a author and publisher . Contains methods such as rentBook and returnBook
 
 ## Inheritance
-The concept of inheritance is used in the system to define a common set of attributes and behaviors for items in the rental store. The Item class serves as the base class for Movie,Game and Book classes. It defines common attributes such as title, genre, and release date, as well as a unique ID and a rental fee attribute, which can be overridden by the subclasses.
+The concept of inheritance is used in the system to define a common set of attributes and behaviors for items in the rental store. The Item class serves as the base class for Movie,Book and Book classes. It defines common attributes such as title, genre, and release date, as well as a unique ID and a rental fee attribute, which can be overridden by the subclasses.
 
-The subclasses, Movie,Game and Book , inherit these attributes and methods from the Item class and add their own unique attributes and behaviors such as director, cast, platform, and publisher, and rent and return methods.
+The subclasses, Movie,Book and Book , inherit these attributes and methods from the Item class and add their own unique attributes and behaviors such as director, cast, platform, and publisher, and rent and return methods.
 
 Using inheritance in this way helps to reduce code duplication and promotes modularity and extensibility in the system.

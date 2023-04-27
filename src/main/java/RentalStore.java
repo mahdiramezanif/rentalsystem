@@ -1,39 +1,39 @@
 import java.util.*;
 public class RentalStore {
     ArrayList<Customer> customers = new ArrayList<Customer>();
-    ArrayList<Movie> movies = new ArrayList<Movie>();
+    ArrayList<Item> Items = new ArrayList<Item>();
 
     public RentalStore() {
     }
     public void register(Customer customer){
         this.customers.add(customer);
     }
-    public void addMovie(Movie movie){
-        this.movies.add(movie);
+    public void addItem(Item Item){
+        this.Items.add(Item);
     }
-    public void removeMovie(Movie movie){
-        this.movies.remove(movie);
+    public void removeItem(Item Item){
+        this.Items.remove(Item);
     }
-    public ArrayList<Movie> getAvailableMovies(){
-        ArrayList<Movie> availableMovies = new ArrayList<Movie>();
-        for (Movie m:movies) {
-            if (m.isAvailable()==true)
-                availableMovies.add(m);
+    public ArrayList<Item> getAvailableItems(){
+        ArrayList<Item> availableItems = new ArrayList<Item>();
+        for (Item i:Items) {
+            if (i.isAvailable()==true)
+                availableItems.add(i);
         }
-        return availableMovies;
+        return availableItems;
     }
-    public void rentMovie(Customer customer, Movie movie){
-        if (movie.isAvailable()==false){
-            System.out.println("This movie already is rented! ");
+    public void rentItem(Customer customer, Item Item){
+        if (Item.isAvailable()==false){
+            System.out.println("This Item already is rented! ");
         }
         else {
-            movie.setAvailable(false);
-            this.getAvailableMovies().remove(movie);
-            customer.rentals.add(new Rental(movie,customer,
-                    Integer.parseInt(customer.getId() +Integer.toString(movie.getId()))));
+            Item.setAvailable(false);
+            this.getAvailableItems().remove(Item);
+            customer.rentals.add(new Rental(Item,customer,
+                    Integer.parseInt(customer.getId() +Integer.toString(Item.getId()))));
         }
     }
-    public void returnMovie(Rental rental){
+    public void returnItem(Rental rental){
         boolean correctRental = false;
         for (Rental r:rental.getCustomer().rentals) {
             if (r==rental){
@@ -42,8 +42,8 @@ public class RentalStore {
             }
         }
         if (correctRental){
-            rental.getMovie().setAvailable(true);
-            this.getAvailableMovies().add(rental.getMovie());
+            rental.getItem().setAvailable(true);
+            this.getAvailableItems().add(rental.getItem());
             rental.getCustomer().rentals.remove(rental);
         }
         else
@@ -57,12 +57,12 @@ public class RentalStore {
         System.out.println("There is no customer with this id !");
         return null;
     }
-    public Movie getMovieById(int id){
-        for (Movie m:movies) {
-            if (m.getId()==id)
-                return m;
+    public Item getItemById(int id){
+        for (Item i:Items) {
+            if (i.getId()==id)
+                return i;
         }
-        System.out.println("There is no movie with this id !");
+        System.out.println("There is no Item with this id !");
         return null;
     }
 }
