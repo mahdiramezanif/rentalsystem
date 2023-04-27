@@ -37,7 +37,14 @@ public class Rental {
         returnDate = date; // set the return date of the movie to provided value
     }
 
-    public double calculateLateFee() {
-        // calculate late fee for the rental
+    @Override
+    public String toString() {
+        return "Rental{" +
+                movie.toString() +
+                customer.toString() +
+                ", rentalDate=" + rentalDate +
+                ", returnDate=" + returnDate +
+                ", id=" + id +
+                '}';
     }
 }

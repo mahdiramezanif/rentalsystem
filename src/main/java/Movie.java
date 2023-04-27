@@ -49,4 +49,17 @@ public class Movie {
     public void setAvailable(boolean status) {
         available = status; // set availability status of the movie
     }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "title='" + title + '\'' +
+                ", genre='" + genre + '\'' +
+                ", director='" + director + '\'' +
+                ", cast=" + cast +
+                ", releaseDate=" + releaseDate +
+                ", id=" + id +
+                ", available=" + available +
+                '}';
+    }
 }
