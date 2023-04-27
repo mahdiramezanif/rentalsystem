@@ -5,6 +5,7 @@ public class Customer {
     private String phone;
     private String address;
     private int id;
+    public ArrayList<Rental> rentals = new ArrayList<Rental>();
 
     public Customer(String name, String email, String phone, String address, int id) {
         this.name = name;
@@ -35,6 +36,17 @@ public class Customer {
     }
 
     public List<Rental> getRentals() {
-        // return a list of all rentals made by the customer
+         return rentals;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", id=" + id +
+                '}';
     }
 }

@@ -1,13 +1,13 @@
 import java.util.*;
 public class Rental {
-    private Movie movie;
+    private Item item;
     private Customer customer;
     private Date rentalDate;
     private Date returnDate;
     private int id;
 
-    public Rental(Movie movie, Customer customer, int id) {
-        this.movie = movie;
+    public Rental(Item item, Customer customer, int id) {
+        this.item = item;
         this.customer = customer;
         rentalDate = new Date(); // set rental date to current date
         this.id = id;
@@ -17,8 +17,8 @@ public class Rental {
         return id;
     }
 
-    public Movie getMovie() {
-        return movie;
+    public Item getItem() {
+        return item;
     }
 
     public Customer getCustomer() {
@@ -37,7 +37,14 @@ public class Rental {
         returnDate = date; // set the return date of the movie to provided value
     }
 
-    public double calculateLateFee() {
-        // calculate late fee for the rental
+    @Override
+    public String toString() {
+        return "Rental{" +
+                item.toString() +
+                customer.toString() +
+                ", rentalDate=" + rentalDate +
+                ", returnDate=" + returnDate +
+                ", id=" + id +
+                '}';
     }
 }
