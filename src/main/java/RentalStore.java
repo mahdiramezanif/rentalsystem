@@ -45,6 +45,7 @@ public class RentalStore {
             rental.getItem().setAvailable(true);
             this.getAvailableItems().add(rental.getItem());
             rental.getCustomer().rentals.remove(rental);
+            rental.setReturnDate(new Date());
         }
         else
             System.out.println("There is no any rental by this customer ! ");

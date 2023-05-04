@@ -11,6 +11,7 @@ public class Rental {
         this.customer = customer;
         rentalDate = new Date(); // set rental date to current date
         this.id = id;
+        item.setAvailable(false);
     }
 
     public int getId() {
@@ -34,7 +35,8 @@ public class Rental {
     }
 
     public void setReturnDate(Date date) {
-        returnDate = date; // set the return date of the movie to provided value
+        returnDate = date;
+        // set the return date of the movie to provided value
     }
 
     @Override
