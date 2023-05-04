@@ -27,7 +27,6 @@ public class RentalStore {
             System.out.println("This Item already is rented! ");
         }
         else {
-            Item.setAvailable(false);
             this.getAvailableItems().remove(Item);
             customer.rentals.add(new Rental(Item,customer,
                     Integer.parseInt(customer.getId() +Integer.toString(Item.getId()))));
