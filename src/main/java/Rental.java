@@ -34,6 +34,7 @@ public class Rental {
         return returnDate;
     }
 
+
     public void setReturnDate(Date date) {
         returnDate = date;
         // set the return date of the movie to provided value
