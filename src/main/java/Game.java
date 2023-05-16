@@ -2,8 +2,9 @@ import java.util.*;
 public class Game extends Item{
     protected String platform;
     protected String publisher;
-    public Game(String title, String genre, String platform, String publisher, Date releaseDate, int id) {
-        super(title, genre, releaseDate, id);
+    public Game(String title, String genre, String platform, String publisher,
+                Date releaseDate, int id, boolean isAvailable) {
+        super(title, genre, releaseDate, id, isAvailable);
         this.platform = platform;
         this.publisher = publisher;
     }
@@ -22,7 +23,7 @@ public class Game extends Item{
                 ", publisher=" + publisher +
                 ", releaseDate=" + releaseDate +
                 ", id=" + id +
-                ", available=" + available +
+                ", isAvailable=" + isAvailable +
                 '}';
     }
 }

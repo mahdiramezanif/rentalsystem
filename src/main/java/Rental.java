@@ -8,7 +8,8 @@ public class Rental {
 
     public Rental(Item item, Customer customer, int id) {
         this.item = item;
-        this.customer = customer;
+        this.customer = new Customer(customer.getName(), customer.getEmail(),
+                customer.getPhone(), customer.getAddress(), customer.getId());
         rentalDate = new Date(); // set rental date to current date
         this.id = id;
         item.setAvailable(false);
@@ -42,12 +43,9 @@ public class Rental {
 
     @Override
     public String toString() {
-        return "Rental{" +
-                item.toString() +
-                customer.toString() +
+        return "item = " + item +
                 ", rentalDate=" + rentalDate +
                 ", returnDate=" + returnDate +
-                ", id=" + id +
-                '}';
+                ", id=" + id ;
     }
 }

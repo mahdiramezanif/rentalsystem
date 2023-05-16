@@ -1,9 +1,9 @@
 import java.util.*;
 public class Movie extends Item{
     private String director;
-    private List<String> cast;
-    public Movie(String title, String genre, String director, List<String> cast, Date releaseDate, int id) {
-        super(title, genre, releaseDate, id);
+    private String cast;
+    public Movie(String title, String genre, String director, String cast, Date releaseDate, int id, boolean isAvailable) {
+        super(title, genre, releaseDate, id, isAvailable);
         this.director = director;
         this.cast = cast;
     }
@@ -12,7 +12,7 @@ public class Movie extends Item{
         return director;
     }
 
-    public List<String> getCast() {
+    public String getCast() {
         return cast;
     }
     @Override
@@ -24,7 +24,7 @@ public class Movie extends Item{
                 ", cast=" + cast +
                 ", releaseDate=" + releaseDate +
                 ", id=" + id +
-                ", available=" + available +
+                ", isAvailable=" + isAvailable +
                 '}';
     }
 }

@@ -17,17 +17,18 @@ public class RentalStore {
     public ArrayList<Item> getAvailableItems(){
         ArrayList<Item> availableItems = new ArrayList<Item>();
         for (Item i:Items) {
-            if (i.isAvailable()==true)
+            if (i.isAvailable())
                 availableItems.add(i);
         }
         return availableItems;
     }
     public void rentItem(Customer customer, Item Item){
-        if (Item.isAvailable()==false){
-            System.out.println("This Item already is rented! ");
+        if (!Item.isAvailable()){
+            System.out.println("This Item is already rented! ");
         }
         else {
-            this.getAvailableItems().remove(Item);
+            if (customer.rentals == null)
+                customer.rentals = new ArrayList<Rental>();
             customer.rentals.add(new Rental(Item,customer,
                     Integer.parseInt(customer.getId() +Integer.toString(Item.getId()))));
         }
@@ -50,6 +51,7 @@ public class RentalStore {
             System.out.println("There is no any rental by this customer ! ");
     }
     public Customer getCustomerById(int id){
+        System.out.println(customers);
         for (Customer c:customers) {
             if (c.getId()==id)
                 return c;

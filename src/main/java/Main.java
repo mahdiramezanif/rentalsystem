@@ -1,71 +1,53 @@
 import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
 import com.google.gson.reflect.TypeToken;
-
 import java.io.*;
-import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Gson gson = new Gson(); // create a new Gson object.
-        Reader reader = new FileReader("TestYourFork.json"); // open the input file.
-
-        // Read the JSON data into separate lists for each type of object
-        Map<String, Object> data = gson.fromJson(reader, new TypeToken<Map<String, Object>>(){}.getType());
-        List<Book> books = gson.fromJson(gson.toJson(data.get("books")), new TypeToken<List<Book>>(){}.getType());
-        List<Game> games = gson.fromJson(gson.toJson(data.get("games")), new TypeToken<List<Game>>(){}.getType());
-        List<Customer> customers = gson.fromJson(gson.toJson(data.get("customers")), new TypeToken<List<Customer>>(){}.getType());
-
+        Gson gson = new Gson();
+        Reader reader = new FileReader("D:\\Learning\\University\\planing\\code\\Java\\RentalSystem\\TestYourFork.json");
+        AllModules allModulesList = gson.fromJson(reader, new TypeToken<AllModules>() {
+        }.getType());
         reader.close();
 
-        ArrayList<Rental> rentals = new ArrayList<>();
+        Customer firstCustomer = allModulesList.customers.get(0);
+        Customer secoundCustomer = allModulesList.customers.get(1);
+        Customer thirdCustomer = allModulesList.customers.get(2);
 
-        Customer customer = null;
-
-        for (Customer c : customers) {
-            if (c.getId()==1){
-                customer = c;
-                break;
-            }
+        RentalStore bookStore = new RentalStore();
+        for (Item b:allModulesList.books) {
+            bookStore.addItem(b);
         }
-        for (Book b:books) {
-            if (b.getId()==3)
-                rentals.add(new Rental(b,customer,1));
-
-            if (b.getId()==6)
-                rentals.add(new Rental(b,customer,2));
+        RentalStore gameStore = new RentalStore();
+        for (Item g:allModulesList.games) {
+            gameStore.addItem(g);
         }
 
-        for (Customer c : customers) {
-            if (c.getId()==2){
-                customer = c;
-                break;
-            }
-        }
-        for (Book b:books) {
-            if (b.getId()==1)
-                rentals.add(new Rental(b,customer,3));
+        Book book1 = (Book) bookStore.getItemById(3);
+        Book book2 = (Book) bookStore.getItemById(6);
+        bookStore.rentItem(firstCustomer,book1);
+        bookStore.rentItem(firstCustomer,book2);
 
-            if (b.getId()==7)
-                rentals.add(new Rental(b,customer,4));
-        }
-        for (Customer c : customers) {
-            if (c.getId()==3){
-                customer = c;
-                break;
-            }
-        }
-        for (Book b:books) {
-            if (b.getId()==9)
-                rentals.add(new Rental(b,customer,5));
-        }
-        for (Game g:games) {
-            if (g.getId()==4)
-                rentals.add(new Rental(g,customer,6));
-        }
+        Book book3 = (Book) bookStore.getItemById(1);
+        Book book4 = (Book) bookStore.getItemById(7);
+        bookStore.rentItem(secoundCustomer,book3);
+        bookStore.rentItem(secoundCustomer,book4);
 
-        for (Rental r:rentals) {
-            System.out.println(r.toString());
-        }
+        Book book5 = (Book) bookStore.getItemById(9);
+        Game game = (Game) gameStore.getItemById(4);
+        bookStore.rentItem(thirdCustomer,book5);
+        gameStore.rentItem(thirdCustomer,game);
 
+        Gson writing = new Gson();
+        String json = writing.toJson(allModulesList);
+        String path = "D:\\Learning\\University\\planing\\code\\Java\\RentalSystem\\TestYourFork.json";
+        try {
+            FileWriter writer = new FileWriter(path);
+            writer.write(json);
+            writer.close();
+        } catch (IOException | JsonIOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

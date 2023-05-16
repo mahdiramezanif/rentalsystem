@@ -2,8 +2,8 @@ import java.util.*;
 public class Book extends Item{
     protected String author;
     protected String publisher;
-    public Book(String title, String genre, String author, String publisher, Date releaseDate, int id) {
-        super(title, genre, releaseDate, id);
+    public Book(int id,String title, String genre, Date releaseDate, boolean isAvailable, String author, String publisher) {
+        super(title, genre, releaseDate, id, isAvailable);
         this.author = author;
         this.publisher = publisher;
     }
@@ -22,7 +22,7 @@ public class Book extends Item{
                 ", publisher=" + publisher +
                 ", releaseDate=" + releaseDate +
                 ", id=" + id +
-                ", available=" + available +
+                ", isAvailable=" + isAvailable +
                 '}';
     }
 }

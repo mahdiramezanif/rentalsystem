@@ -41,12 +41,22 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" +
+        String s = "Customer{" +
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", address='" + address + '\'' +
-                ", id=" + id +
-                '}';
+                ", id=" + id ;
+        if (rentals != null){
+            String n = "";
+            for (Rental r:rentals) {
+                n = n.concat(r.toString());
+            }
+            n = n.concat("}");
+            s = s.concat(n);
+        }
+        else
+            s = s.concat(", rentals = null}");
+        return s;
     }
 }
